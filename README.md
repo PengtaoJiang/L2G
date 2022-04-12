@@ -1,14 +1,14 @@
 # Local to Global
-The Official PyTorch code for ["L2G: A Simple Local-to-Global Knowledge Transfer Framework for Weakly Supervised Semantic Segmentation"](), which is implemented based on the code of [OAA-PyTorch](https://github.com/PengtaoJiang/OAA-PyTorch). The segmentation framework is borrowed from [deeplab-pytorch](https://github.com/kazuto1011/deeplab-pytorch).
+The Official PyTorch code for ["L2G: A Simple Local-to-Global Knowledge Transfer Framework for Weakly Supervised Semantic Segmentation"](https://arxiv.org/abs/2204.03206), which is implemented based on the code of [OAA-PyTorch](https://github.com/PengtaoJiang/OAA-PyTorch). 
+The segmentation framework is borrowed from [deeplab-pytorch](https://github.com/kazuto1011/deeplab-pytorch).
 
 ## Installation
-use
+Use the following command to prepare your enviroment.
 ```
 pip install -r requirements.txt
 ```
-to get your enviroment prepared.
 
-Download the [VOCdevkit.tar.gz](https://drive.google.com/file/d/1jnHE6Sau0tHI7X6JQKhzHov-vseYbrf9/view?usp=sharing) file.
+Download the [PASCAL VOC dataset](https://drive.google.com/file/d/1jnHE6Sau0tHI7X6JQKhzHov-vseYbrf9/view?usp=sharing) and MS COCO dataset, respectively.
 
 ## L2G
 Before training your L2G model, you need to check whether you set the correct path to dataset in train_l2g_sal_voc.sh:
