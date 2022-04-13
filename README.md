@@ -27,12 +27,10 @@ L2G
 │   │   ├── JPEGImages
 │   │   ├── SegmentationClass
 │   │   ├── SegmentationClassAug
-│   │   ├── ImageSets
 │   │   ├── Sal
 │   ├── coco14
 │   │   ├── JPEGImages
 │   │   ├── SegmentationClass
-│   │   ├── ImageSets
 │   │   ├── Sal
 
 ```
