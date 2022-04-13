@@ -89,17 +89,24 @@ python main.py crf \
     --config-path configs/voc12.yaml
 ```
 ## Performance
-Method |mIoU(val) | mIoU (test)  
+Method | mIoU(val) | mIoU (test)  
 --- |:---:|:---:
-OAA(VOC)  | 72.1 | 71.7
-OAA(COCO) | 44.2 | ---
+L2G on VOC  | 72.1 | 71.7
+L2G on COCO | 44.2 | ---
 
 
 If you have any question about L2G, please feel free to contact [Me](https://pengtaojiang.github.io/) (pt.jiang AT mail DOT nankai.edu.cn). 
 
 ## Citation
-If you use these codes and models in your research, please cite:
-
+If you use our codes and models in your research, please cite:
+```
+@inproceedings{jiang2022l2g,
+  title={L2G: A Simple Local-to-Global Knowledge Transfer Framework for Weakly Supervised Semantic Segmentation},
+  author={Jiang, Peng-Tao and Yang, Yuqi and Hou, Qibin and Wei, Yunchao},
+  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
+  year={2022}
+}
+```
 
 ## License
 The code is released under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License for NonCommercial use only. Any commercial use should get formal permission first.
