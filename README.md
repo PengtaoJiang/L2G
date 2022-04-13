@@ -8,30 +8,33 @@ Use the following command to prepare your enviroment.
 pip install -r requirements.txt
 ```
 
-Download the [PASCAL VOC dataset](https://drive.google.com/file/d/1jnHE6Sau0tHI7X6JQKhzHov-vseYbrf9/view?usp=sharing) and MS COCO dataset, respectively.
+Download the PASCAL VOC dataset and MS COCO dataset, respectively. 
+- [PASCAL VOC 2012](https://drive.google.com/file/d/1jnHE6Sau0tHI7X6JQKhzHov-vseYbrf9/view?usp=sharing)
+- [MS COCO 2014](https://cocodataset.org/#home)  
 
-## L2G
-Before training your L2G model, you need to check whether you set the correct path to dataset in train_l2g_sal_voc.sh:
-```
-...
-CUDA_VISIBLE_DEVICES=1 python3 ./scripts/${RUN_FILE} \
-    --img_dir=[PATH] \
-...
-```
-[PATH] is the path to your VOC2012 dataset or COCO dataset.
+L2G uses the off-the-shelf saliency maps generated from PoolNet. Download them and move to a folder named **Sal**.
+- [Saliency maps for PASCAL VOC 2012](https://drive.google.com/file/d/1jnHE6Sau0tHI7X6JQKhzHov-vseYbrf9/view?usp=sharing)
+- [Saliency maps for MS COCO 2014](https://cocodataset.org/#home)  
 
-Our code also need to take use of off-the-shelf saliency maps. Copy them to a folder named **saliency_aug** in your VOC2012 dataset. 
-Take VOC2012 as an example, the folder structure should be like:
+The data folder structure should be like:
 ```
-VOC2012
+L2G
+├── models
+├── scripts
+├── utils
+├── data
+│   │   ├── VOC2012
 │   │   │   ├── JPEGImages
 │   │   │   ├── SegmentationClass
-│   │   │   ├── SegmentationClass_Aug
-│   │   │   ├── saliency_aug
-│   │   │   ├── ImageSets
-│   │   │   │   ├── Segmentation
+│   │   │   ├── SegmentationClassAug
+│   │   │   ├── Sal
+│   ├── COCO14
+│   │   │   ├── JPEGImages
+│   │   │   ├── SegmentationClass
+│   │   │   ├── Sal
 ```
 
+## L2G
 To train a L2G model on dataset VOC2012, you need to:
 ```
 cd L2G/
@@ -42,7 +45,10 @@ And the same for COCO:
 cd L2G/
 ./train_l2g_sal_coco.sh 
 ```
-After the training process, you will need the following command to generate pseudo label and check their quality:
+We provide the pretrained classification models on PASCAL VOC and MS COCO, respectively.
+%
+After the training process, you will need the following command to generate pseudo labels 
+and check their qualities:
 ```
 ./test_l2g.sh
 ```
