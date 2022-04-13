@@ -13,7 +13,7 @@ Download the PASCAL VOC dataset and MS COCO dataset, respectively.
 - [MS COCO 2014](https://cocodataset.org/#home)  
 
 L2G uses the off-the-shelf saliency maps generated from PoolNet. Download them and move to a folder named **Sal**.
-- [Saliency maps for PASCAL VOC 2012](https://drive.google.com/file/d/1jnHE6Sau0tHI7X6JQKhzHov-vseYbrf9/view?usp=sharing)
+- [Saliency maps for PASCAL VOC 2012](https://drive.google.com/file/d/1ZBLZ3YFw6yDIRWo0Apd4znOozg-Buj4A/view?usp=sharing)
 - [Saliency maps for MS COCO 2014](https://cocodataset.org/#home)  
 
 The data folder structure should be like:
@@ -23,12 +23,12 @@ L2G
 ├── scripts
 ├── utils
 ├── data
-│   │   ├── VOC2012
-│   │   │   ├── JPEGImages
-│   │   │   ├── SegmentationClass
-│   │   │   ├── SegmentationClassAug
-│   │   │   ├── Sal
-│   ├── COCO14
+│   ├── voc12
+│   │   ├── JPEGImages
+│   │   ├── SegmentationClass
+│   │   ├── SegmentationClassAug
+│   │   ├── Sal
+│   ├── coco14
 │   │   │   ├── JPEGImages
 │   │   │   ├── SegmentationClass
 │   │   │   ├── Sal
