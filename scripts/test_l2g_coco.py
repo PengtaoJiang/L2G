@@ -12,7 +12,7 @@ import argparse
 import torchvision
 from torchvision import models, transforms
 from torch.utils.data import DataLoader
-from utils.LoadDataMoreBox import test_l2g_data_loader_mp
+from utils.LoadData import test_l2g_data_loader_mp
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 import matplotlib as mpl
@@ -28,7 +28,7 @@ def colormap(index):
     return mpl.colors.LinearSegmentedColormap.from_list('cmap', [colormaps[0], colormaps[index+1], '#FFFFFF'], 256)
     
 def get_arguments():
-    parser = argparse.ArgumentParser(description='ACoL')
+    parser = argparse.ArgumentParser(description='L2G')
     parser.add_argument("--save_dir", type=str, default='./runs/exp8/')
     parser.add_argument("--img_dir", type=str, default='./data/VOCdevkit/VOC2012/JPEGImages/')
     parser.add_argument("--test_list", type=str, default='./data/voc12/train_cls.txt')

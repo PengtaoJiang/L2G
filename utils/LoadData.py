@@ -557,3 +557,94 @@ def train_l2g_crop_data_loader(args, test_path=False, segmentation=False):
     val_loader = DataLoader(img_test, batch_size=args.batch_size, shuffle=False, num_workers=args.num_workers)
 
     return train_loader, val_loader
+
+## Enable multi process
+class VOCDatasetMSF_l2g_MP(Dataset):
+    def __init__(self, datalist_file, root_dir, scales=(0.5, 1.0, 1.5, 2.0), num_classes=20, transform=None,
+                 test=False, total_process=4, process_id=0):
+        self.root_dir = root_dir
+        self.testing = test
+        self.datalist_file = datalist_file
+        self.scales = scales
+        self.transform = transform
+        self.num_classes = num_classes
+        self.image_list, self.label_list = self.read_labeled_image_list(self.root_dir, self.datalist_file)
+        split_num = len(self.image_list)//total_process
+        if process_id == total_process - 1:
+            self.image_list = self.image_list[split_num * process_id:]
+            self.label_list = self.label_list[split_num * process_id:]
+        else:
+            self.image_list = self.image_list[split_num * process_id:split_num * (1+process_id)]
+            self.label_list = self.label_list[split_num * process_id:split_num * (1+process_id)]
+
+    def __len__(self):
+        return len(self.image_list)
+
+    def __getitem__(self, idx):
+        img_name = self.image_list[idx]
+        image = Image.open(img_name).convert('RGB')
+
+        ms_img_list = []
+        for s in self.scales:
+            target_size = (int(round(image.size[0] * s)),
+                           int(round(image.size[1] * s)))
+            s_img = image.resize(target_size, resample=Image.CUBIC)
+            ms_img_list.append(s_img)
+
+        if self.transform is not None:
+            for i in range(len(ms_img_list)):
+                ms_img_list[i] = self.transform(ms_img_list[i])
+
+        msf_img_list = []
+        for i in range(len(ms_img_list)):
+            msf_img_list.append(ms_img_list[i])
+            msf_img_list.append(torch.flip(ms_img_list[i], [-1]))
+
+        if self.testing:
+            return img_name, msf_img_list, self.label_list[idx]
+
+        return msf_img_list, self.label_list[idx]
+
+    def read_labeled_image_list(self, data_dir, data_list):
+        with open(data_list, 'r') as f:
+            lines = f.readlines()
+        img_name_list = []
+        img_labels = []
+        for line in lines:
+            fields = line.strip().split()
+            image = fields[0] + '.jpg'
+            labels = np.zeros((self.num_classes,), dtype=np.float32)
+            for i in range(len(fields) - 1):
+                index = int(fields[i + 1])
+                labels[index] = 1.
+            img_name_list.append(os.path.join(data_dir, image))
+            img_labels.append(labels)
+        return img_name_list, img_labels  # np.array(img_labels, dtype=np.float32)
+
+def test_l2g_data_loader_mp(args, ms=True, process_id=0, process_num=4):
+    if 'coco' in args.dataset:
+        mean_vals = [0.471, 0.448, 0.408]
+        std_vals = [0.234, 0.239, 0.242]
+    else:
+        mean_vals = [0.485, 0.456, 0.406]
+        std_vals = [0.229, 0.224, 0.225]
+
+    if ms:
+        tsfm_test = transforms.Compose([transforms.ToTensor(),
+                                        transforms.Normalize(mean_vals, std_vals),
+                                        ])
+        # multi scale inference
+        img_test = VOCDatasetMSF_l2g_MP(args.test_list, root_dir=args.img_dir, num_classes=args.num_classes,
+                                     transform=tsfm_test, test=True, process_id=process_id, total_process=process_num)
+        val_loader = DataLoader(img_test, batch_size=args.batch_size, shuffle=False, num_workers=args.num_workers)
+    else:
+        tsfm_test = transforms.Compose([transforms.Resize(args.input_size),
+                                        transforms.ToTensor(),
+                                        transforms.Normalize(mean_vals, std_vals),
+                                        ])
+        # single scale inference
+        img_test = VOCDataset(args.test_list, root_dir=args.img_dir, num_classes=args.num_classes, transform=tsfm_test,
+                              test=True)
+        val_loader = DataLoader(img_test, batch_size=args.batch_size, shuffle=False, num_workers=args.num_workers)
+
+    return val_loader
