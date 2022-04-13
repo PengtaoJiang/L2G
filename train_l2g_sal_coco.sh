@@ -20,7 +20,7 @@ cp scripts/${RUN_FILE} runs/${EXP}/model/${RUN_FILE}
 
 
 CUDA_VISIBLE_DEVICES=${GPU_ID} python3 ./scripts/${RUN_FILE} \
-    --img_dir=/root/data/jpt/coco14/ \
+    --img_dir=./data/coco14/ \
     --train_list=./data/coco14/train_cls.txt \
     --test_list=./data/coco14/val_cls.txt \
     --epoch=${EPOCH} \

@@ -4,7 +4,7 @@ TYPE=ms
 THR=0.25
 
 CUDA_VISIBLE_DEVICES=1 python3 ./scripts/test_l2g_voc.py \
-    --img_dir=/home/ubuntu/Project/datasets/VOCdevkit/VOC2012/JPEGImages/ \
+    --img_dir=./data/voc12/JPEGImages/ \
     --test_list=./data/voc12/train_cls.txt \
     --arch=vgg \
     --batch_size=1 \
@@ -19,7 +19,7 @@ CUDA_VISIBLE_DEVICES=1 python3 ./scripts/test_l2g_voc.py \
 
 
 CUDA_VISIBLE_DEVICES=1 python3 scripts/evaluate_mthr_voc.py \
-    --datalist data/voc12/train_aug.txt \
-    --gt_dir /home/ubuntu/Project/datasets/VOCdevkit/VOC2012/SegmentationClassAug/ \
+    --datalist ./data/voc12/train_aug.txt \
+    --gt_dir ./data/voc12/SegmentationClassAug/ \
     --save_path ./runs/${EXP}/${TYPE}/result.txt \
     --pred_dir ./runs//${EXP}/${TYPE}/attention/

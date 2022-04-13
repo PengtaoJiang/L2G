@@ -12,7 +12,7 @@ cp scripts/${RUN_FILE} runs/${EXP}/model/${RUN_FILE}
 
 
 CUDA_VISIBLE_DEVICES=0,1 python3 ./scripts/${RUN_FILE} \
-    --img_dir=/root/data/jpt/VOCdevkit/VOC2012/ \
+    --img_dir=./data/voc12/ \
     --train_list=./data/voc12/train_cls.txt \
     --test_list=./data/voc12/val_cls.txt \
     --epoch=10 \
