@@ -27,11 +27,14 @@ L2G
 │   │   ├── JPEGImages
 │   │   ├── SegmentationClass
 │   │   ├── SegmentationClassAug
+│   │   ├── ImageSets
 │   │   ├── Sal
 │   ├── coco14
-│   │   │   ├── JPEGImages
-│   │   │   ├── SegmentationClass
-│   │   │   ├── Sal
+│   │   ├── JPEGImages
+│   │   ├── SegmentationClass
+│   │   ├── ImageSets
+│   │   ├── Sal
+
 ```
 Download the [pretrained model](https://drive.google.com/file/d/15F13LEL5aO45JU-j45PYjzv5KW5bn_Pn/view) 
 to initialize the classification network and put it to `./models/`.
