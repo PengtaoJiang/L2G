@@ -33,6 +33,8 @@ L2G
 │   │   │   ├── SegmentationClass
 │   │   │   ├── Sal
 ```
+Download the [pretrained model](https://drive.google.com/file/d/15F13LEL5aO45JU-j45PYjzv5KW5bn_Pn/view) 
+to initialize the classification network and putit to `./models/`.
 
 ## L2G
 To train a L2G model on dataset VOC2012, you need to implement the following commands:
