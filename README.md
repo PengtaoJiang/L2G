@@ -95,10 +95,10 @@ python main.py crf \
     --config-path configs/voc12.yaml
 ```
 ## Performance
-Method | mIoU(val) | mIoU (test)  
+Dataset | mIoU(val) | mIoU (test)  
 --- |:---:|:---:
-L2G on VOC  | 72.1 | 71.7
-L2G on COCO | 44.2 | ---
+PASCAL VOC  | 72.1 | 71.7
+MS COCO     | 44.2 | ---
 
 
 If you have any question about L2G, please feel free to contact [Me](https://pengtaojiang.github.io/) (pt.jiang AT mail DOT nankai.edu.cn). 
