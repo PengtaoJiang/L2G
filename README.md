@@ -66,7 +66,7 @@ To train a segmentation model, you need to generate pseudo segmentation labels f
 ```
 ./gen_gt_voc.sh
 ```
-This code will generate pseudo segmentation labels in './data/VOCdevkit/VOC2012/pseudo_seg_labels/'.
+This code will generate pseudo segmentation labels in './data/voc12/pseudo_seg_labels/'.  
 For coco, it should be
 ```
 ./gen_gt_coco.sh
