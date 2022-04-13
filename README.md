@@ -13,8 +13,8 @@ Download the PASCAL VOC dataset and MS COCO dataset, respectively.
 - [MS COCO 2014](https://cocodataset.org/#home)  
 
 L2G uses the off-the-shelf saliency maps generated from PoolNet. Download them and move to a folder named **Sal**.
-- [Saliency maps for PASCAL VOC 2012](https://drive.google.com/file/d/1jnHE6Sau0tHI7X6JQKhzHov-vseYbrf9/view?usp=sharing)
-- [Saliency maps for MS COCO 2014](https://cocodataset.org/#home)  
+- [Saliency maps for PASCAL VOC 2012](https://drive.google.com/file/d/1ZBLZ3YFw6yDIRWo0Apd4znOozg-Buj4A/view?usp=sharing)
+- [Saliency maps for MS COCO 2014](https://drive.google.com/file/d/1IN6qQK0kL4_x8yzF7jvS6hNIFXsrR6XV/view?usp=sharing)  
 
 The data folder structure should be like:
 ```
@@ -23,16 +23,18 @@ L2G
 ├── scripts
 ├── utils
 ├── data
-│   │   ├── VOC2012
-│   │   │   ├── JPEGImages
-│   │   │   ├── SegmentationClass
-│   │   │   ├── SegmentationClassAug
-│   │   │   ├── Sal
-│   ├── COCO14
+│   ├── voc12
+│   │   ├── JPEGImages
+│   │   ├── SegmentationClass
+│   │   ├── SegmentationClassAug
+│   │   ├── Sal
+│   ├── coco14
 │   │   │   ├── JPEGImages
 │   │   │   ├── SegmentationClass
 │   │   │   ├── Sal
 ```
+Download the [pretrained model](https://drive.google.com/file/d/15F13LEL5aO45JU-j45PYjzv5KW5bn_Pn/view) 
+to initialize the classification network and putit to `./models/`.
 
 ## L2G
 To train a L2G model on dataset VOC2012, you need to implement the following commands:
@@ -116,4 +118,6 @@ If you use our codes and models in your research, please cite:
 
 ## License
 The code is released under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License for NonCommercial use only. Any commercial use should get formal permission first.
-  
+ 
+## Acknowledgement
+Some parts of this code are borrowed from a nice work, [EPS](https://github.com/PengtaoJiang/EPS).
