@@ -69,36 +69,36 @@ To train a segmentation model, you need to generate pseudo segmentation labels f
 ```
 ./gen_gt_voc.sh
 ```
-This code will generate pseudo segmentation labels in './data/voc12/pseudo_seg_labels/'.  
+This code will generate pseudo segmentation labels in `./data/voc12/pseudo_seg_labels/`.  
 For COCO
 ```
 ./gen_gt_coco.sh
 ```
+This code will generate pseudo segmentation labels in `./data/coco14/pseudo_seg_labels/`.  
 
 
-Then you can train the [deeplab-pytorch](https://github.com/kazuto1011/deeplab-pytorch) model as follows:  
 ```
 cd deeplab-pytorch
-bash scripts/setup_caffemodels.sh
-python convert.py --dataset coco
-python convert.py --dataset voc12
 ```
-Train the segmentation model by
+Download the [pretrained models]() and put them into the `pretrained` folder.  
+
+Train DeepLabv2-resnet101 model by
 ```
 python main.py train \
-      --config-path configs/voc2012.yaml
+      --config-path configs/voc12_resnet_dplv2.yaml
 ```
 Test the segmentation model by 
 ```
 python main.py test \
     --config-path configs/voc12.yaml \
-    --model-path data/models/voc12/deeplabv2_resnet101_msc/train_aug/checkpoint_final.pth
+    --model-path data/models/voc12/voc12_resnet_v2/train_aug/checkpoint_final.pth
 ```
 Apply the crf post-processing by 
 ```
 python main.py crf \
     --config-path configs/voc12.yaml
 ```
+
 ## Performance
 Dataset | mIoU(val) | mIoU (test)  
 --- |:---:|:---:
