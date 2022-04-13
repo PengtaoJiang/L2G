@@ -48,7 +48,7 @@ cd L2G/
 ./train_l2g_sal_coco.sh 
 ```
 We provide the pretrained classification models on PASCAL VOC and MS COCO, respectively.
-- [Pretrained models for VOC]()
+- [Pretrained models for VOC](https://drive.google.com/file/d/1Yc-LZ4bTM_1arpPBId6CMP9I2gOrDkdi/view?usp=sharing)
 - [Pretrained models for COCO](https://drive.google.com/file/d/1i3b35g4GJO448kVdibBa5aL-yG6G2Huc/view?usp=sharing)  
 
 After the training process, you will need the following command to generate pseudo labels 
@@ -67,7 +67,7 @@ To train a segmentation model, you need to generate pseudo segmentation labels f
 ./gen_gt_voc.sh
 ```
 This code will generate pseudo segmentation labels in './data/voc12/pseudo_seg_labels/'.  
-For coco, it should be
+For COCO
 ```
 ./gen_gt_coco.sh
 ```
