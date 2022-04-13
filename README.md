@@ -35,24 +35,30 @@ L2G
 ```
 
 ## L2G
-To train a L2G model on dataset VOC2012, you need to:
+To train a L2G model on dataset VOC2012, you need to implement the following commands:
 ```
 cd L2G/
 ./train_l2g_sal_voc.sh 
 ```
-And the same for COCO:
+For COCO:
 ```
 cd L2G/
 ./train_l2g_sal_coco.sh 
 ```
 We provide the pretrained classification models on PASCAL VOC and MS COCO, respectively.
-%
-After the training process, you will need the following command to generate pseudo labels 
-and check their qualities:
-```
-./test_l2g.sh
-```
+- [Pretrained models for VOC]()
+- [Pretrained models for COCO]()  
 
+After the training process, you will need the following command to generate pseudo labels 
+and check their qualities.   
+For VOC:
+```
+./test_l2g_voc.sh
+```
+For COCO:
+```
+./test_l2g_coco.sh
+```
 ## Weakly Supervised Segmentation
 To train a segmentation model, you need to generate pseudo segmentation labels first by 
 ```
