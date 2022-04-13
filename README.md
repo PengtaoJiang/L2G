@@ -90,13 +90,13 @@ python main.py train \
 Test the segmentation model by 
 ```
 python main.py test \
-    --config-path configs/voc12.yaml \
+    --config-path configs/voc12_resnet_dplv2.yaml \
     --model-path data/models/voc12/voc12_resnet_v2/train_aug/checkpoint_final.pth
 ```
 Apply the crf post-processing by 
 ```
 python main.py crf \
-    --config-path configs/voc12.yaml
+    --config-path configs/voc12_resnet_dplv2.yaml
 ```
 
 ## Performance
