@@ -2,6 +2,10 @@
 The Official PyTorch code for ["L2G: A Simple Local-to-Global Knowledge Transfer Framework for Weakly Supervised Semantic Segmentation"](https://arxiv.org/abs/2204.03206), which is implemented based on the code of [OAA-PyTorch](https://github.com/PengtaoJiang/OAA-PyTorch). 
 The segmentation framework is borrowed from [deeplab-pytorch](https://github.com/kazuto1011/deeplab-pytorch).
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/l2g-a-simple-local-to-global-knowledge/weakly-supervised-semantic-segmentation-on-1)](https://paperswithcode.com/sota/weakly-supervised-semantic-segmentation-on-1?p=l2g-a-simple-local-to-global-knowledge)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/l2g-a-simple-local-to-global-knowledge/weakly-supervised-semantic-segmentation-on)](https://paperswithcode.com/sota/weakly-supervised-semantic-segmentation-on?p=l2g-a-simple-local-to-global-knowledge)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/l2g-a-simple-local-to-global-knowledge/weakly-supervised-semantic-segmentation-on-4)](https://paperswithcode.com/sota/weakly-supervised-semantic-segmentation-on-4?p=l2g-a-simple-local-to-global-knowledge)
+
 ## Installation
 Use the following command to prepare your enviroment.
 ```
