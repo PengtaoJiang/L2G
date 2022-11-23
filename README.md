@@ -15,6 +15,7 @@ pip install -r requirements.txt
 Download the PASCAL VOC dataset and MS COCO dataset, respectively. 
 - [PASCAL VOC 2012](https://drive.google.com/open?id=1uh5bWXvLOpE-WZUUtO77uwCB4Qnh6d7X)
 - [MS COCO 2014](https://cocodataset.org/#home)  
+- [MS COCO 2014 Ground-Truth 提取码：0naq](https://pan.baidu.com/s/1O61VZG0CkyZ7fHoK0FfjAA)
 
 L2G uses the off-the-shelf saliency maps generated from PoolNet. Download them and move to a folder named **Sal**.
 - [Saliency maps for PASCAL VOC 2012](https://drive.google.com/file/d/1ZBLZ3YFw6yDIRWo0Apd4znOozg-Buj4A/view?usp=sharing)
