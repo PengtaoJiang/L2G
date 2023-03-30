@@ -13,7 +13,7 @@ pip install -r requirements.txt
 ```
 
 Download the PASCAL VOC dataset and MS COCO dataset, respectively. 
-- [PASCAL VOC 2012 提取码cl1e](https://pan.baidu.com/s/1CCR840MJ3Rx7jQ-r1jLX9g)
+- [PASCAL VOC 2012 提取码cl1e](https://pan.baidu.com/s/1CCR840MJ3Rx7jQ-r1jLX9g)  
 - [MS COCO 2014](https://cocodataset.org/#home)  
 - [MS COCO 2014 Ground-Truth 提取码：0naq](https://pan.baidu.com/s/1O61VZG0CkyZ7fHoK0FfjAA)
 
@@ -39,8 +39,7 @@ L2G
 │   │   ├── Sal
 
 ```
-Download the [pretrained model](https://drive.google.com/file/d/15F13LEL5aO45JU-j45PYjzv5KW5bn_Pn/view) 
-to initialize the classification network and put it to `./models/`.
+Download the [pretrained model 提取码：t4ce](https://pan.baidu.com/share/init?surl=vP8O0RPJKXM0HPhVCn7wXw) to initialize the classification network and put it to `./models/`.
 
 ## L2G
 To train a L2G model on dataset VOC2012, you need to implement the following commands:
