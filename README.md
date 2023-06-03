@@ -82,7 +82,7 @@ This code will generate pseudo segmentation labels in `./data/coco14/pseudo_seg_
 ```
 cd deeplab-pytorch
 ```
-Download the [pretrained models](https://drive.google.com/file/d/1huoE5TcdUqLRFjVPaYSs2_sg2ehv9Z_s/view?usp=sharing) and put them into the `pretrained` folder.  
+Download the [pretrained models](https://drive.google.com/file/d/1huoE5TcdUqLRFjVPaYSs2_sg2ehv9Z_s/view?usp=sharing) and put them into the `pretrained` folder.  In our paper, we also utilize the [caffe model](https://pan.baidu.com/share/init?surl=B77rPp_Kr1qEtdrTP6lVdw)（48kv）to initilize deeplab, which can usually obtain higher segmentation performance.
 
 Train DeepLabv2-resnet101 model by
 ```
