@@ -55,7 +55,7 @@ def get_arguments():
     parser.add_argument("--att_dir", type=str, default='./runs/exp8/')
     parser.add_argument('--dataset', type=str, default='pascal_voc')
     # parser.add_argument("--thr", type=list, default=[0.05, 0.1, 0.15, 0.2])
-    parser.add_argument("--thr", type=list, default=[0.25])
+    parser.add_argument("--thr", type=float, default=0.25)
     parser.add_argument("--num_workers", type=int, default=8)
     # parser.add_argument("--thr", type=list, default=[0.3, 0.4, 0.5, 0.6])
 
@@ -65,8 +65,12 @@ def visual(args, i):
     gt_dir = args.gt_dir
     list_dir = 'ImageSets/Segmentation/'
     ids = [i.split()[0].split('/')[2].split('.')[0].strip() for i in open(args.datalist) if not i.strip() == '']
-    with open('./data/voc12/train_cls.txt') as f:
-        lines = f.readlines()
+    if args.dataset == 'pascal_voc':
+        with open('./data/voc12/train_cls.txt') as f:
+            lines = f.readlines()
+    else:
+        with open('./data/coco14/train_cls.txt') as f:
+            lines = f.readlines()
     label_lst = [line[:-1].split()[1:] for line in lines]
     # gt_dir = args.gt_dir
     # with open(args.datalist) as f:
@@ -112,14 +116,15 @@ def visual(args, i):
         pred = []
         pred.append(np.zeros((num_classes+1, h, w), np.float32))
         pred.append(np.zeros((num_classes+1, h, w), np.float32))
-        for tt, bg_thr in enumerate(args.thr):
-            pred[tt][0] = bg_thr
-            for jj in range(len(label_lst[ind])):
-                la = int(label_lst[ind][jj])
-                att_img_path = os.path.join(args.pred_dir, img_id + '_{}.png'.format(la))
-                att = cv2.imread(att_img_path, 0) / 255.0
-                pred[tt][la+1] = att
-            pred[tt] = np.argmax(pred[tt], axis=0).astype(np.uint8)
+        tt = 0
+        bg_thr = args.thr
+        pred[tt][0] = bg_thr
+        for jj in range(len(label_lst[ind])):
+            la = int(label_lst[ind][jj])
+            att_img_path = os.path.join(args.pred_dir, img_id + '_{}.png'.format(la))
+            att = cv2.imread(att_img_path, 0) / 255.0
+            pred[tt][la+1] = att
+        pred[tt] = np.argmax(pred[tt], axis=0).astype(np.uint8)
         # diff = np.where(pred[0] == pred[1], pred[0], 255).astype(np.uint8)
         # print(diff.shape)
         cv2.imwrite(args.save_path + img_id+".png", pred[0])
