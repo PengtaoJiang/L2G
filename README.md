@@ -39,7 +39,7 @@ L2G
 │   │   ├── Sal
 
 ```
-Download the [pretrained model 提取码：t4ce](https://pan.baidu.com/share/init?surl=vP8O0RPJKXM0HPhVCn7wXw) to initialize the classification network and put it to `./models/`.
+Download the [pretrained model for PASCAL 提取码：t4ce](https://pan.baidu.com/share/init?surl=vP8O0RPJKXM0HPhVCn7wXw) and [pretrained model for COCO 提取码：ghcr](https://pan.baidu.com/s/1Tv3Ncf7wotR66OIUfp9_yg?pwd=ghcr) to initialize the classification network and put it to `./models/`.
 
 ## L2G
 To train a L2G model on dataset VOC2012, you need to implement the following commands:
