@@ -91,7 +91,8 @@ def get_resnet38_model(args):
     model_local = getattr(importlib.import_module(model_name), 'Net')(args)
 
     if len(args.load_checkpoint) == 0:
-        weights_dict = models.resnet38_base.convert_mxnet_to_torch('./models/ilsvrc-cls_rna-a1_cls1000_ep-0001.params')
+        # weights_dict = models.resnet38_base.convert_mxnet_to_torch('./models/ilsvrc-cls_rna-a1_cls1000_ep-0001.params')
+        weights_dict = torch.load("./models/resnet38_dict.pth")
         model.load_state_dict(weights_dict, strict=False)
         model = torch.nn.DataParallel(model).cuda()
 
